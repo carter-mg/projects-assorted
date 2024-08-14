@@ -1,5 +1,5 @@
 # projects-assorted
-An assembly of projects I have worked on.
+An assembly of projects I have worked on. After a meeteing with Jan - Willem Steeb (CASA lead who is working on the NGVLA at the NRAO), he recommended I put some of my work in a GitHub repo. This is the result of that conversation! 
 
 # about me
 My name is Carter, I am from Arizona! I study astrophysics and philosophy at BYU.
