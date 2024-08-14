@@ -12,3 +12,4 @@ Piano and guitar 🎼🎸🎹
 
 # info
 If you want to get in touch, feel free to reach out! 
+You will find a series of publication files, research projects, and class work I have completed here.
