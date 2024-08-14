@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{cancel}
+
+\graphicspath{{/Users/cmark/OneDrive/Pictures/Screenshots}}
+
+\title{Quiz 7}
+\author{Carter Garrett}
+\date{31 July 2023}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+    \item [1.]
+    Find the solution to the initial value problem.
+    $$4y'' + 3y' + 2y = u_2(t); y(0) = 0, y'(0) = 1$$
+
+\end{enumerate}
+
+Answer:
+
+    \begin{center}
+        $$\mathcal{L}\{4y'' + 3y' + 2y = u_2(t)\}$$
+        $$4(s^2Y(s) - sy(0) - y'(0)) + 3(sY(s) - y'(0)) + 2Y(s) = \dfrac{e^{-2s}}{s}$$
+        $$4s^2Y(s) - 4sy(0) - 4y'(0) + 3sY(s) - 3y'(0) + 2Y(s) = \dfrac{e^{-2s}}{s}$$
+        $$Y(s)(4s^2 +3s + 2) - 4s(0) - 4(1) -3(1) = \dfrac{e^{-2s}}{s}$$
+        $$Y(s)(4s^2 + 3s + 2) - 7 = \dfrac{e^{-2s}}{s}$$ 
+        $$Y(s) = e^{-2s} \dfrac{1}{4s^3 + 3s^2 + 2s} + \dfrac{7}{4s^2 + 3s + 2}$$
+        $$Y(s) = e^{-2s} \cdot \dfrac{1}{4s^3 + 3s^2 + 2s} + \dfrac{7}{4}\cdot \dfrac{1}{(s + 3/8)^2 + 23/64}$$
+        $$Y(s) = e^{-2s} \cdot \dfrac{1}{4s^3 + 3s^2 + 2s}  + \dfrac{7}{4} \cdot \dfrac{\sqrt{64}}{\sqrt{23}} \cdot \dfrac{\sqrt{23}/\sqrt{64}}{(s + 3/8)^2 + (\sqrt{23}/\sqrt{64})^2}$$
+        The above satisfies the form $e^{at}\sin(bt)$. Conduct partial fraction decomposition for the first part.
+        $$\dfrac{A}{s} + \dfrac{Bs + C}{4s^2 + 3s + 2} = \dfrac{1}{4s^3 + 3s^2 + 2s}$$
+        $$A(4s^2 + 3s + 2) + s(Bs + C) = 1$$
+        $$4As^2 + 3As + 2A + Bs^2 + Cs = 1$$
+        $$\begin{Bmatrix}
+            4As^2 + Bs^2 = 0 \\
+            3A + C = 0 \\
+            2A = 1 
+        \end{Bmatrix}$$
+        The system yields $ A = 1/2$, $B = -2 $, $C = -3/2$
+        $$e^{-2s} \cdot (\dfrac{1/2}{s} + \dfrac{-2s - 3/2}{4s^2 + 3s + 2}) + \dfrac{14}{\sqrt{23}}\cdot\dfrac{\sqrt{23}/\sqrt{64}}{(s + 3/8)^2 + (\sqrt{23}/\sqrt{64})^2}$$
+        $$e^{-2s}\cdot \dfrac{1}{2}\cdot (\dfrac{1}{s} + \dfrac{-4s - 3}{4s^2 + 3s +2}) + \dfrac{14}{\sqrt{23}}\cdot\dfrac{\sqrt{23}/\sqrt{64}}{(s + 3/8)^2 + (\sqrt{23}/\sqrt{64})^2}$$
+        $$\dfrac{1}{2}e^{-2s}(\dfrac{1}{s} + \dfrac{-4s - 24/8}{4s^2 + 3s + 2}) + \dfrac{14}{\sqrt{23}}\cdot\dfrac{\sqrt{23}/\sqrt{64}}{(s + 3/8)^2 + (\sqrt{23}/\sqrt{64})^2}$$
+        $$\dfrac{1}{2}e^{-2s}(\dfrac{1}{s} +(-\dfrac{1}{4})\dfrac{s + 6/8}{4s^2 + 3s + 2}) + \dfrac{14}{\sqrt{23}}\cdot\dfrac{\sqrt{23}/\sqrt{64}}{(s + 3/8)^2 + (\sqrt{23}/\sqrt{64})^2}$$
+        (1)
+        $$\dfrac{1}{2}e^{-2s}(\dfrac{1}{s} +(-\dfrac{1}{4})(\dfrac{s + 3/8}{(s + 3/8)^2 + (\sqrt{23}/\sqrt{64})^2} + \dfrac{3}{8}\dfrac{1}{(s + 3/8)^2 + (\sqrt{23}/\sqrt{64})})) \cdots$$
+        $$Y(s) = \mathcal{L}^{-1}\{(1)\}$$
+        $$\dfrac{1}{2}H(t - 2)(1 - (\dfrac{1}{4})(e^{-3t/8}\cos(\dfrac{t\sqrt{23}}{8} + \dfrac{3}{8}e^{-3t/8}\sin(\dfrac{t\sqrt{23}}{8})))) + \dfrac{14}{\sqrt{23}}e^{-3t/8}\sin(\dfrac{t\sqrt{23}}{8})$$
+        $$H(t - 2)(\dfrac{1}{2} - \dfrac{1}{8}e^{-3t/8}\cos(\dfrac{t\sqrt{23}}{8})- \dfrac{3}{32}e^{-3t/8}\sin(\dfrac{t\sqrt{23}}{8})) + \dfrac{14}{\sqrt{23}}e^{-3t/8}\sin(\dfrac{t\sqrt{23}}{8})$$
+        $$\boxed{H(t - 2)(\dfrac{1}{2} - \dfrac{1}{8}e^{-3(t-2)/8}\cos(\dfrac{(t-2)\sqrt{23}}{8})- \dfrac{3}{32}e^{-3(t-2)/8}\sin(\dfrac{(t-2)\sqrt{23}}{8})) + \dfrac{14}{\sqrt{23}}e^{-3t/8}\sin(\dfrac{t\sqrt{23}}{8})}$$
+        
+    \end{center}
+
+\newpage
+\begin{enumerate}
+    \item[2.]
+    Solve the given initial value problem and sketch the graph of the solution. 
+    $$y'' + y = -\delta(t - \pi) + \delta(t - 2\pi); y(0) = 0, y'(0) = 1$$
+\end{enumerate}
+
+Answer: 
+
+    \begin{center}
+        $$\mathcal{L}\{y'' + y = -\delta(t - \pi) + \delta(t - 2\pi)\}$$
+        $$s^2Y(s) - sy(0) - y'(0) + Y(s) = -e^{-\pi s} + e^{-2\pi s}$$
+        $$s^2Y(s) - s(0) - 1 + Y(s) = -e^{-\pi s} + e^{-2\pi s}$$
+        $$Y(s)(s^2 + 1) - 1 = -e^{-\pi s} + e^{-2\pi s}$$
+        $$Y(s) = -e^{-\pi s} \dfrac{1}{s^2 + 1} + e^{-2\pi s} \dfrac{1}{s^2 + 1} + \dfrac{1}{s^2 + 1}$$
+        $$\boxed{Y(s) = u_{\pi}\sin(t - \pi) + u_{2\pi}\sin(t - 2\pi) + \sin(t)}$$
+    \end{center}
+\end{document}
