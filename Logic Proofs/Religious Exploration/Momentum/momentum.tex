@@ -58,10 +58,11 @@
                 We begin by defining and investigating the Newtonian definition of momentum, as well as its exensions and relations, specifically with mass. 
                 \par
                 It is very easy to practially define mass. But conceptually, mass is a very obscure idea to capture.
-                There exists a multiplicity of physical definitions for mass. Generally, it refers to the `stuff' of an object, or its substance. While seemingly simple, it becomes immediately complex-- how do you determine the quantity of that object's `stuff'? 
+                There exists a multiplicity of physical definitions for mass. Generally, it refers to the `stuff' of an object, or its substance. While seemingly simple, it becomes immediately complex-- how do you determine the quantity of that object's `stuff?' 
                 \par
                 Throughout history, humanity has associated mass with gravity and weight (the strange tendency of stuff to move together). The concept of weight is closely connected to mass, but not identical. 
-                An object's \textit{weight} is generally defined as the force it experiences due to gravity. Newton understood that gravitational forces are proportional to mass, or in other words, if something has more mass, it experiences a greater force due to gravitational attraction.
+                An object's \textit{weight} is generally defined as the force it experiences due to gravity. Newton understood that gravitational forces are proportional to mass,\footnote{$F = G\tfrac{M \cdot m}{r^2}$: As mass incrases, so does the gravitational attraction.}
+                or in other words, if something has more mass, it experiences a greater force due to gravitational attraction.
                 And by extension, if it experiences a greater force, it will \textit{weigh} more. Therefore, weight is actually a kind of a pointer for mass. 
                 So, for example, if an object A weighs more on Earth than object B, we say it has more mass as in Figure \ref{fig:weigh}.
                 
@@ -80,7 +81,8 @@
                     \caption{} \label{fig:weigh}
                 \end{figure} 
             
-                Force due to gravity, in Figure \ref{fig:weigh}, is represented by arrows. Because object A has more mass, it experiences a greater force. Today, we define the kilogram as the standard unit of mass. We have successfully found a way to quantitatively describe mass.\footnote{While this is principally the correct definition of mass, modern definitions include the numerical value of Planck's constant $h$, in combination with the meter as defined by the speed of light $c$ and the second as $\Delta \nu_{Cs}$. See \href{https://www.bipm.org/en/si-base-units/kilogram}{this page} for a full explanation.}
+                Force due to gravity, in Figure \ref{fig:weigh}, is represented by arrows. Because object A has more mass, it experiences a greater force. 
+                Today, we define the kilogram as the standard unit of mass by weight. We have successfully found a way to quantitatively describe mass.\footnote{While this is principally the correct definition of mass, modern definitions include the numerical value of Planck's constant $h$, in combination with the meter as defined by the speed of light $c$ and the second as $\Delta \nu_{Cs}$. See \href{https://www.bipm.org/en/si-base-units/kilogram}{this page} for a full explanation.}
             
             \subsubsection{Inertia and Momentum}
                 What if we want to know the mass of something that isn't found on Earth? This is a problem, because until now we have needed Earth's gravity to determine mass using the kilogram-- and we don't want our definition to have faulty contingencies. Mass is also often thought of in relation to \textit{inertia}, or its `resistance to acceleration \cite{Bray}.'
@@ -114,13 +116,13 @@
                     ($F$ representing force, $m$ and $a$ being mass and accelereation, respectively.)
                 \end{center}
                 
-                Now suppse we apply a force to create velocity (rate of change in position) in object A.
-                If we wanted to stop it, we couldn't will the ball to stop rolling by our minds. Unless it were by some incomprehensible physical processes, the ball could only stop rolling by force.
-                \par
+                Now suppose we apply a force to create velocity (or rate of change in position) in object A.
+                If we wanted to stop it, we couldn't just `will' the ball to stop rolling by our minds. Unless it were by some incomprehensible physical processes, the ball could only stop rolling by force.
+                
                 Thus, the inertia of object A is defined as its property to resist any change of velocity unless by force-- it will not spontaneously change. Momentum, however, is defined as the `amount of motion' possessed. 
                 This is inherently different than velocity. Recall that velocity is only the rate at which an object changes position over time.\footnote{This explanation includes references to the kinematic equations, which can be referenced on \href{https://byjus.com/physics/kinematics-equations/}{this web page}.} 
                 The ball might be traveling with a velocity of one meter each second, but is not associated with the mass of the ball. `Amount of motion' refers to the velocity as well as the inertial mass of an object.
-                \par
+                
                 Therefore, momentum, or the `amount of motion' is proportional to an object's inertial mass \emph{and} velocity. So an object has greater momentum (and is harder to start or stop moving) if it is really big or is moving really fast. 
 
                 \begin{equation}\label{eq:2}
@@ -133,7 +135,7 @@
                 We have successfully explored the derivation of Newtonian momentum.
 
             \subsubsection{Energy}
-                An equally important concept that will be relevant later on is that of energy. An object's energy is its ability to do work.
+                An equally important concept that will be relevant later on is that of energy. An object's energy is its ability to do work.\footnote{Work is to apply a force in a manner that displaces the object. $W = F \cdot d$.}
                 Interestingly enough, we also recognize energy to be heat or light. The idea can be traced back to Gottfried Leibniz,\footnote{A complete history of the development of the concept is messy. Newton, Chatelet, Young, Coriolis, and Joule, among many other scientsts contributed to its development. See \href{https://spark.iop.org/history-concept-energy-and-work}{this page} for more.} 
                 who referred to an early form of the concept \cite{Smith}.
                 There are many ways that energy can be identified, table \ref{tab:1} below contains the most prevalent.
@@ -148,7 +150,7 @@
                         \item Gravitational Potential Energy
                             \begin{description}
                                 \item[$PE = mgh$]
-                                \item[Note:] $h$ is height, $g$ is acceleration due to gravity ($9.8 ms^{-2}$).
+                                \item[Note:] $h$ is height, $g$ is acceleration due to gravity on Earth ($9.8 ms^{-2}$).
                             \end{description}
                         \item Electrical Energy
                             \begin{description}
@@ -208,7 +210,7 @@
 
         \subsection{Non - Newtonian Momentum}
             The Newtonian model for kinematics and mechanics has worked wonderfully for centuries. However, especially in the last century, there have been discrepancies between Newtonian predictions and measured observations.
-            Albert Einstein is well known for revolutionizing physics with his papers outlining special relativity and the mass-energy equivalence which provided predictions that matched observations where Newetonian kinematics failed \cite{Einstein1}.
+            Albert Einstein is well known for revolutionizing physics with his papers outlining special relativity and the mass-energy equivalence. These provided predictions that matched observations where Newetonian kinematics failed \cite{Einstein1}.\footnote{The most well-known example is the precession of Mercury's orbit.}
             We will circumnavigate a full justification of his theories in this paper.
             \par
             Suffice it to say that momentum does not apply accurately to objects moving at speeds non-trivial compared to the speed of light (we can't describe the momentum of things that are traveling \emph{really} fast with Newtonian momentum).
@@ -246,7 +248,7 @@
                 }}
             \end{center}
 
-            President Nelson establishes that he is referring to the concept of momentum not only in the physical world, but as the same conceptual principles that apply to the sentimental or abstracted elements of our lives.
+            President Nelson establishes that he is referring to the concept of momentum not only in the physical world, but as the same conceptual principles that apply to the sentimental or abstracted aspects of our lives.
             He continues by discussing the nature of spiritual momentum:
 
             \begin{center}
@@ -255,8 +257,8 @@
                 }}
             \end{center}
 
-            He attributes the impartial nature of physical to spiritual momentum, but that positive momentum is required for our day. 
-            To sufficiently instruct his listeners, he provides a list of five actions that will `fuel positive spiritual momentum:'
+            He attributes the impartial nature of physical momentum to spiritual momentum, but that positive \emph{spiritual} momentum is required for our day. 
+            To instruct his listeners, he provides a list of five actions that will `fuel positive spiritual momentum:'
 
             \begin{enumerate}
                 \item [1.] Get on the covenant path and stay there.
@@ -268,7 +270,7 @@
 
             President Nelson ends by promising an increased capacity to accrue spiritual momentum. Besides this, he mentions very little explicitly about spiritual momentum in the address. 
 
-            In other addresses, President Nelson mentions power in the following ways \cite{Nelson2}: 
+            In other addresses, President Nelson mentions power in the following way \cite{Nelson2}: 
 
             \begin{center}
                 \textbf{\textit{``God so loved the world that He sent His Only Begotten Son to help us. 
@@ -287,7 +289,7 @@
 
             So it appears that a consequence of spiritual power is spiritual rest. It is also crucial to add here that President Nelson defines this special spiritual form of rest as one that does \emph{not} absolve the holder of trial or obstacles. 
             
-            Each of these concepts are profoundly associated with the physical concepts outlined earlier in this document.
+            Each of these concepts are profoundly associated with the physical concepts laid out earlier in this document.
 
         \subsection{Comparison of Spiritual and Physical Momentum}
             \subsubsection{Mass and Velocity in Momenta}
@@ -297,27 +299,29 @@
 
                 In the analogy, if mass is as the human agent, then it follows that spiritual momentum, as an intangible property, can be gained as force is applied in either a positive or negative manner.
                 A very natural question arises: Are we, as spiritual mass-agents inertial? If we possess some form of impetuous \textit{vis viva} in any direction, will we maintain that course unless acted upon by some force?
+                
                 Spiritual stagnancy is often cited as a legitimate spiritual phenomenon in the Church of Jesus Christ of Latter-Day Saints. Progression can halt without action on the part of the agent. Therefore it may be argued that we, as agents, do not possess `spiritual inertia' as physical matter does. 
                 Conversely, let it be said again that there is no such thing as spiritual inaction, and therefore agents are constantly affecting their aggregate spiritual momentum with every conscious and subconscious decision.
 
-                The analogy seems to hold best with the premise of `inertial spiritual mass' in place. Spiritual mass, for the purposes of our inquiry, will describe the intrinsic resistance to spiritual forces.\footnote{It is not desirable to imply an inherent inequality among the spiritual offspring of God. Although undesirable, it seems correct to say that each individual responds to spiritual influences differently}
+                Therefore, the analogy seems to hold best with the premise of `inertial spiritual mass' in place. Spiritual mass, for the purposes of our inquiry, will describe the intrinsic resistance to spiritual forces.\footnote{It is not desirable to imply an inherent inequality among the spiritual offspring of God. Although undesirable, it seems correct to say that each individual responds to spiritual influences differently}
                 We now recall the formal physical definition of momentum (Equation \ref{eq:1}).
 
                 \[p = m \cdot v\]
 
                 We have assigned significance to $p$ and $m$, only $v$ remains. What is spiritual velocity? And what does it mean if a larger mass contributes to a greater spiritual momentum?
                 
-                If we hold velocity constant and allow mass to vary, then it follows that an individual's response to inaction may be large or small. 
-                Large `spiritual masses' at rest may respond with a smaller change in velocity a force of some constant value acts upon it.\footnote{Impulse is a physical concept defined by $\Delta p = F \Delta t$. A change in momentum is proportional to a force exerted over time.}
-                Small `spiritual masses' at rest may respond with a greater change in velocity when a force of the same constant value acts upon it.
-                In essence, this is to say that the large mass moving slowly will have the same momentum as the small mass moving quickly. 
+                If we hold velocity constant and allow mass to vary, then it follows that an individual's response to spiritual forces may be large or small. 
+                Large `spiritual masses' at rest may respond with a smaller change in velocity when a force of some value acts upon it.\footnote{Impulse is a physical concept defined by $\Delta p = F \Delta t$. A change in momentum is proportional to a force exerted over time.}
+                Small `spiritual masses' at rest may respond with a greater change in velocity when a force of the same value acts upon it.
+                In essence, this is to say that the large mass moving slower will have the same momentum as the small mass moving quicker. 
+
                 In pursuit of the analogy, a large spiritual mass may experience difficulty in gaining velocity, but will not stop easily. 
                 On the contrary, a small spiritual mass may easily obtain a large velocity, but can easily be stopped. 
                 This seems right-- some individuals experience an erratic spiritual journey with many changes in velocity, and others experience a slowly accelerating journey of consistency.
                 It cannot be said at this stage, whether one is more preferrable than the other.
 
                 Now, concerning the idea of spiritual velocity. The easiest comparison is `the rate of change in spiritual position.' This makes enough sense, but is subject to debate.\footnote{Scriptures can be cited in support or opposition of this claim, such as James 4:8 or Psalms 145:18}
-                Velocity is ubiquitously defind as a vector quantity. This means that velocity is \emph{directional}, and not a scalar magnitude. Velocity includes how fast and in which direction an object changes its position.
+                Velocity is ubiquitously defined as a vector quantity. This means that velocity is \emph{directional}, and not a scalar magnitude. Velocity includes how fast and in which direction an object changes its position.
                 Again, this seems spiritually intuitive. The scriptures discuss the process of coming to God and spiritual momentum, as it is a vector quantity too, may bring us towards or away from God. 
 
                 A formal definition then, might be: 
@@ -349,24 +353,25 @@
                 \[E = p\cdot v\]
                 
                 This is more manegeable. It might be understood as `energy is the product of momentum and velocity.' Notice this is very close to the relativistic $E = pc$ expression.
-                Is spiritual momentum multiplied with spiritual velocity equivalent to spiritual energy? The answer hardly seems clear. 
+                Is spiritual energy the product of spiritual momentum multiplied with spiritual velocity? The answer hardly seems clear. 
                 If viewed relativistically, via the Pythagorean Sum of momentum and rest mass, we might find clarity. Recall Equation \ref{eq:8}.
 
                 \[E^2 = (pc)^2 + (m_0c^2)^2\]
 
                 This may be understood as: ``Total spiritual energy of an individual is equivalent to her Pythagorean Sum of relativistic spiritual momentum and spiritual rest mass.''
                  
-                Now to grossly oversimplify: Because mass and energy are equivalent, total energy of any object must be the sum of whatever mass that object has at rest (rest mass) and the motional energy (kinetic energy).
+                Now to grossly oversimplify: Because mass and energy are equivalent in special relativity,\footnote{Postulatd by Albert Einstein in Special Relativity, the famous $E = mc^2$. All objects, even at rest, possess an intrinsic energy. This concept is profound beyond the scope of this paper.} 
+                total energy of any object must be the sum of whatever mass that object has at rest (rest mass) and the motional energy (kinetic energy).
                 Thus, by virtue of volitional agents being spiritual masses, they possess an intrinsic energy that is equivalent to their rest mass. 
                 Implicitly, total spiritual energy would increase with greater momentum and greater rest mass. It seems then, that greater spiritual energy is available to agents with greater rest mass.\footnote{Rest mass and inertial mass are subtly distinct concepts, but can be numerically equivalent. We circumvent exploring the nuances in this section.}
 
-                Velocity affects total spiritual energy when an object is moving at relativistic speeds, or when $\tfrac{v}{c} \gg 0$.\footnote{Relativistic considerations typically apply when an object moves at $0.1c$, however appreciability varies by situation.}
+                Moreover, velocity affects total spiritual energy when an object is moving at relativistic speeds, or when $\tfrac{v}{c} \gg 0$.\footnote{Relativistic considerations typically apply when an object moves at $0.1c$, however appreciability varies by situation.}
                 Recall Equation \ref{eq:7}. 
 
                 \[p = \dfrac{m_0v}{\sqrt{1 - \frac{v^2}{c^2}}}\]
 
                 By analysis, the faster an object travels in comparison with the speed of light, momentum becomes multiplicatively larger. 
-                Continued manipulation of relativistic energy relations allows to demonstrate that:
+                Continued manipulation of relativistic energy relations allows us to show that:
 
                 \begin{equation}\label{eq:9}
                     \vec{v} = \dfrac{\vec{p}}{\sqrt{(mc)^2 + (\vec{p})^2}}c
@@ -382,7 +387,7 @@
                 
                 \[P = \dfrac{E}{t}\]
 
-                By inspection, power can increase by an increase in energy or a reduction of time. President Nelson invited his audience to draw God's power, or energy invested over time, by doing the following \cite{Nelson2}:
+                By inspection, power can become greater with either an increase in energy or a reduction of time. President Nelson invited his audience to draw on God's power, or energy invested over time, by doing the following \cite{Nelson2}:
 
                 \begin{enumerate}
                     \item[1.] Keep heavenly covenants.
@@ -391,10 +396,10 @@
                     \item[4.] Invest time learning about the Savior and His Atonement.
                 \end{enumerate}
 
-                It is worth stating that power is sometimes described as something agents possess (Doctrine and Covenants 58:28) and something that agents are conduits of (Ether 12:2). 
+                It is worth stating that power is sometimes described as something agents possess (Doctrine and Covenants 58:28) or something that agents are conduits of (Ether 12:2). 
                 To draw God's power into one's life, then, is to seek an increase in spiritual energy or to decrease the time in which one unit amount of energy is received. 
                 The suggestions listed by President Nelson either increase the quantity of spiritual energy in our lives (item 2), or decrese time in which we experience the same amount of God's energy (item 4).
-                We risk disorienting ourselves by scrutinizing over details in the analogy. One important insight can be gained by considering the connection between power and energy.
+                We risk disorienting ourselves by scrutinizing over details in the analogy. However, one important insight can be gained by considering the connection between power and energy.
                 Recall Equation \ref{eq:6} and item 5 in Table \ref{tab:1}.
                 \begin{equation}
                     \begin{split}
@@ -407,7 +412,7 @@
                 \end{center}
                 \begin{equation}
                     \begin{split}
-                        & = \dfrac{m \cdot a \cdot d}{t}\\
+                        P & = \dfrac{m \cdot a \cdot d}{t}\\
                     \end{split}
                 \end{equation}
                 
@@ -425,10 +430,10 @@
 
     \section{Additional Commentary}
             \subsection{Points of Discrepancy in Interpretation}
-                With all of this said, we are hasty to comment that no choice of interpretation in analogies concerning spiritual momenetum will be totally accurate. 
+                With all of this said, we are hasty to comment that no choice of interpretation in analogies concerning spiritual momentum will be totally accurate. 
                 There are many problems when moving from Newtonian foundations to a Relativistic setting, very little of which was explicitly mentioned in this document. 
                 What's more, we lack a complete underestanding of concepts like spiritual power and energy. These are used in scripture to refer to God's dealings with His children, but are rarely ever fully defined. 
-                This could result in errors within this doument.
+                This could result in errors within this document.
 
             \subsection{The Mark Dilemma}
                 In Jacob 4:14, a `blindness' can come from `looking beyond the mark.' The concept of spiritual momentum was not intended to be the central point of President Nelson's address, and therefore a full development of the concept was not given.
@@ -510,7 +515,7 @@
                     
                     Most of these references have occurred in the Liahona Journal published by the Church of Jesus Christ. Their \href{https://www.churchofjesuschrist.org/?lang=eng}{webpage} will provide many references to the concept of spiritual momentum in the page search query. 
 
-                    The author was surprised and the infrequency of references to the concept in official publication.
+                    The author was surprised by the infrequency of references to the concept in official publication.
 
                 \subsubsection{The Quantum Momentum Operator}
                         In quantum mechanics, the momentum operator is a linear differential operator. It is defined within a basis of Hilbert space which consists of momentum eigenstates. 
@@ -524,8 +529,8 @@
 \newpage
     \section{Concluding Remarks}
     The investigation of the physical notions surrounding spiritual momentum has proven to be, at the very least, interesting. The insights developed have been inspiring, and I hope that they can be refined as time continues. 
-    Overall, the endeavor of writing this paper has, on many occasions, been reminiscent of a book written by Stephen C. Meyer. He received his Ph.D. in the philosophy of science from Cambridge. He is the author of ``Return of the God Hypothesis,\cite[Meyer]'' which is a review of scientific history and current and the current status of the God Hypothesis.
-    It represents his attempt to demonstrate that in the age of New Atheism, the God Hypothesis has not been totally overcome. Though this paper does nothing to comment or contribut to that argument, it is my insufficient effort to blend science and religion in a new way.
+    Overall, the endeavor of writing this paper has, on many occasions, been reminiscent of a book written by Stephen C. Meyer. He received his Ph.D. in the philosophy of science from Cambridge. He is the author of ``Return of the God Hypothesis\cite{Meyer},'' which is a review of the scientific history and current status of the God Hypothesis.
+    It represents his attempt to prove that in the age of New Atheism, the God Hypothesis has not been totally overcome. Though this paper does nothing to comment or contribute to that argument, it is my insufficient effort to blend science and religion in a new way.
     I express my gratitude to those who have received this well and engaged with the ideas I present.
 \newpage
 
