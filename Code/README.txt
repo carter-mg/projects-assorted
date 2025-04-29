@@ -1,7 +1,6 @@
 # about
-230_Project_Main.nb is a class project where we modeled stellar lifetimes on Hayashi tracks, low/high mass evolution tracks, and a simple 3 body gravitational simulation. 
 
-normalization.py is some code I wrote for my research. It simply takes flux data from APO TripleSpec .fits files and normalizes the curve. I have the dS* V927 Her in the code as an example, our most recent target.
+In the astrophysical research folder, you will find some relevant code and images of my diagnosis of V927 Her. It is a delta scuti class variable, and this Helium emission feature is really strange! We are phasing it up currently. 
 
-phase_calc.py is some code I wrote for my research. It simply takes data from lightkurve (TESS/Kepler missions) and the date/time of variable star observation and finds the pulsation phase in days at the time of observation.
+Under rocketry, you will find some python and RPA items that I have used to help develop our hybrid system! 
 
