@@ -1,0 +1,275 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{caption}
+\usepackage{wrapfig}
+\usepackage{pythonhighlight}
+\usepackage{float}
+\usepackage[a4paper, total={6in, 8in}]{geometry} 
+\usepackage{mdframed}
+\usepackage{tikz}
+\usepackage{fitch}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+
+
+\graphicspath{C:\Users\cmark\OneDrive\Documents\Latex\ps6}
+
+\usetikzlibrary{arrows,calc,patterns,positioning,shapes}
+\usetikzlibrary{decorations.pathmorphing}
+\tikzset{
+modal/.style={>=stealth',shorten >=1pt,shorten <=1pt,auto,
+node distance=1.5cm,semithick},
+world/.style={circle,draw,minimum size=1cm,fill=gray!15},
+point/.style={circle,draw,fill=black,inner sep=0.5mm},
+reflexive/.style={->,in=120,out=60,loop,looseness=#1},
+reflexive/.default={5},
+reflexive point/.style={->,in=135,out=45,loop,looseness=#1},
+reflexive point/.default={25},
+}
+
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=cyan,
+    citecolor = red
+}
+
+\newcommand*\fancypants{\vcenter{\hbox{\includegraphics[width = 1.3em]{fp.png}}}}
+
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\setlength{\headheight}{18pt}
+\setlength{\parindent}{12pt}
+
+\lhead{\large{\bf Carter Garrett $\fancypants$}} 
+\chead{}
+\rhead{\textsc{PHIL 305, Problem Set 6}} 
+\lfoot{\today}
+\cfoot{}
+\rfoot{} 
+
+\newmdtheoremenv{defi}{Definition}
+
+
+
+\begin{document}
+
+    \section{Validity in PC}
+
+    Let $\beta$ be a term that is free for term $\alpha$ in \textit{PC} - wff $\phi$.
+
+    \subsection{}
+    
+    We need to prove by induction that for any wff $\phi$ and model $\mathscr{M}$, 
+    if variable assignments $g$ and $h$ agree on all variables with free occurrences in $\phi$, then $V_{\mathscr{M} , g}(\phi) = V_{\mathscr{M}, h}(\phi)$. 
+    
+    \begin{proof}
+        \textit{Base Case}. We consider wffs that do not involve any connectives, of the form $\Gamma(\alpha_1, \dots , \alpha_n)$, where $\Gamma$ is an $n$ - place predicate and $\alpha_1, \dots, \alpha_n$ are terms.
+        Let our variable assignments $g$ and $h$ agree for all variables free in $\phi$. For the case that:
+        
+        $$V_{\mathscr{M}, g}\Gamma(\alpha_1, \dots , \alpha_n) \neq V_{\mathscr{M}, h}(\Gamma(\alpha_1, \dots \alpha_n))$$
+
+        Then our variable assignments, for some $\alpha_i$ would denote different objects. Specifically, there must be an instance where $[\alpha_i]_{\mathscr{M}, g} \neq [\alpha_i]_{\mathscr{M}, h}$.
+        But since $\alpha_i$ is a constant, then the denotation is assigned by $\mathscr{I}$ in $\mathscr{M}$, then the denotations must be identitcal.
+
+        $$[\alpha_i]_{\mathscr{M},g} = [\alpha_i]_{\mathscr{M}, h}$$
+
+        Since $g$ and $h$ agree on all variablee assignments, then they will agree on all free variables in $\Gamma(\alpha_1, \dots, \alpha_n)$. Therefore $[\alpha_i]_{\mathscr{M}, g} = [\alpha_i]_{\mathscr{M}, h}$.
+
+        \noindent \textit{Inductive Step}. We now want to show that more complex sentences built from atomic wffs like $\phi$ will also maintain this property.
+        First, for $(\lnot)$:
+
+        $$V_{\mathscr{M}, g}(\lnot\phi) = 1 \iff V_{\mathscr{M},g}(\phi) = 0$$
+
+        By hypothesis we know that $V_{\mathscr{M}, g}(\phi) = V_{\mathscr{M}, h}(\phi)$. So it follows immediately that $V_{\mathscr{M}, g}(\lnot \phi) = V_{\mathscr{M}, h}(\lnot \phi)$.
+        The connective $(\lnot)$ will preserve denoted equivalence.
+        Next, for the connective $(\rightarrow)$. 
+
+        $$V_{\mathscr{M}, g}(\phi_i \rightarrow \phi_j) = 1 \iff V_{\mathscr{M}, g}(\phi_i) = 0 \text{ or } V_{\mathscr{M}, g}(\phi_j) = 1$$
+
+        Since $V_{\mathscr{M},g}(\phi) = V_{\mathscr{M}, h}(\phi)$, then we confidently say that any instance of $V_{\mathscr{M}, g}(\phi_i) = V_{\mathscr{M}, h}(\phi_i)$ and $V_{\mathscr{M}, g}(\phi_j) = V_{\mathscr{M},h}(\phi_j)$
+        from our base case. Therefore the connective $(\rightarrow)$ will also preserve denoted equivalence.
+        Lastly, $(\forall)$.
+
+        $$V_{\mathscr{M}, g}(\forall\alpha \phi) = 1 \iff V_{\mathscr{M}, g} (g[\alpha \dashrightarrow u] )(\phi) = 1 \text{ s.t. } u \in \mathscr{D}$$
+
+        In other words, $(\forall)$ evaluates to true for a sentence $\phi$ in a model, when each object $u$ that is referenced by $g$ makes $\phi$ true.
+        We know that $V_{\mathscr{M}, g}(\phi)  = V_{\mathscr{M}, h}(\phi)$ by hypothesis and that $h$ and $g$ agree on all free variables. Therefore $(\forall)$ will also preserve denoted equivalence.
+        Therefore, for complex sentences including $(\lnot, \rightarrow, \forall)$ will also maintain $V_g (\phi) = V_h (\phi)$ for a model $\mathscr{M}$.
+    \end{proof}
+
+    \subsection{}
+    We now endeavor to show that if $[\alpha]_g = [\beta]_g$, then $V_g(\phi) = V_g(\phi(\beta / \alpha))$.
+
+    \begin{proof}
+        \textit{Base Case}. In a similar strategy as before, we consider wffs that do not involve any connectives, of the form $\Gamma(\alpha_1, \dots , \alpha_n)$, where $\Gamma$ is an $n$ - place predicate and $\alpha_1, \dots, \alpha_n$ are terms.
+        Let our variable assignments $g$ and $h$ agree for all variables free in $\phi$. Knowing that $[\alpha]_g = [\beta]_g$, then:
+
+        $$V_{\mathscr{\phi}, g}(\Gamma(\alpha_1, \dots, \alpha_n)) = V_{\mathscr{\phi}, g}(\Gamma(\beta_1, \dots, \beta_n))$$
+
+        This because $\mathscr{I}(\alpha) = \mathscr{I}(\beta)$. The interpretation function for the variable assignment function $g$ will map to the same object when computing $[\alpha]$ and $[\beta]$.
+        Therefore, $[\alpha]_g = [\beta]_g \rightarrow V_{\mathscr{M}, g}(\phi(\beta / \alpha))$.
+
+        \noindent \textit{Inductive Step}. We add connectives $(\lnot, \rightarrow, \forall)$, and proceed in very similar fashion as the previous proof.
+        Firstly, $(\lnot)$.
+
+        $$V_{\mathscr{M}, g}(\lnot\phi) = 1 \iff V_{\mathscr{M},g}(\phi) = 0$$
+
+        By hypothesis (and from our base case) we know that $V_{\mathscr{M}, g}(\phi(\alpha)) = V_{\mathscr{M}, g}(\phi(\beta))$. So, we immediately get 
+        $V_{\mathscr{M}, g}(\lnot \phi(\alpha)) = V_{\mathscr{M}, g}(\lnot \phi(\beta))$.
+        The connective $(\lnot)$ will preserve denoted equivalence.
+        Next, for the connective $(\rightarrow)$. 
+
+        $$V_{\mathscr{M}, g}(\phi_i \rightarrow \phi_j) = 1 \iff V_{\mathscr{M}, g}(\phi_i) = 0 \text{ or } V_{\mathscr{M}, g}(\phi_j) = 1$$
+
+        Since $V_{\mathscr{M},g}(\phi(\alpha)) = V_{\mathscr{M}, g}(\phi(\beta))$, then we know that any instance of $V_{\mathscr{M}, g}(\phi_i(\alpha)) = V_{\mathscr{M}, g}(\phi_i(\beta))$ and $V_{\mathscr{M}, g}(\phi_j(\alpha)) = V_{\mathscr{M},g}(\phi_j(\beta))$
+        from our base case. Therefore the connective $(\rightarrow)$ will also preserve denoted equivalence.
+        Lastly, $(\forall)$.
+
+        $$V_{\mathscr{M}, g}(\forall\alpha \phi) = 1 \iff V_{\mathscr{M}, g} (g[\alpha \dashrightarrow u] )(\phi) = 1 \text{ s.t. } u \in \mathscr{D}$$
+
+        In other words, $(\forall)$ evaluates to true for a sentence $\phi$ in a model, when each object $u$ that is referenced by $g$ makes $\phi$ true.
+        We know that $V_{\mathscr{M}, g}(\phi(\alpha))  = V_{\mathscr{M}, h}(\phi(\beta))$ by hypothesis. Nothing has changed with the $\mathscr{I}$ interpretation function, and since it maps $\beta$ and $\alpha$ to the same object $u$, $V_{\mathscr{M}, g}(\forall\phi\alpha) = V_{\mathscr{M}, g}(\forall\phi\beta)$.
+        Therefore $(\forall)$ will also preserve denoted equivalence for $\beta$ and $\alpha$.
+
+        \noindent To conclude, complex sentences including $(\lnot, \rightarrow, \forall)$ will also maintain $V_g (\phi(\alpha)) = V_g (\phi(\beta))$ for a model $\mathscr{M}$.
+    \end{proof}
+
+
+    
+
+    \subsection{}
+    Now the task is to show that $\vDash_{PC} \forall \alpha \phi \rightarrow \phi(\beta / \alpha)$
+
+    \begin{proof}
+        Assume for reductio that $V_{\mathscr{M}, g} (\forall \alpha \phi) = 1$ while $V_{\mathscr{M}, g}(\phi(\beta / \alpha)) = 0$.
+        \begin{enumerate}
+            \item This would entail that for each object $u \in \mathscr{D}$, $V_{\mathscr{M}, g}[\alpha \dashrightarrow u](\phi) = 1$.
+            \item That is in (1), $\mathscr{I}$ and the variable assignment $g$ map $\alpha$ to some object $u$, s.t. $\phi(\alpha)$ obtains.
+            \item We know that $[\alpha]_g = [\beta]_g$ in $\mathscr{M}\left\langle \mathscr{I} \right\rangle$.
+            \item $\mathscr{I}$ and variable assingmnt $g$ must map to the same object $u$ for $\alpha$, so we cannot obtain $V_{\mathscr{M}, g}[\alpha \dashrightarrow u](\phi) = 1$ while $V_{\mathscr{M}, g}[\beta \dashrightarrow u](\phi) =0$
+            \item $\bot (1), (4)$.
+            \item $\therefore \; \vDash_{PC} \forall \alpha \rightarrow \phi(\beta / \alpha)$
+        \end{enumerate}
+    \end{proof}
+
+    \subsection{}
+    Next, that $\vDash_{PC} \forall \alpha (\phi \rightarrow \psi) \rightarrow (\phi \rightarrow \forall \alpha \psi)$, whenever $\alpha$ does not occur free in $\phi$.
+    
+    \begin{enumerate}
+        \item Let $V_{\mathscr{M}, g}(\forall \alpha (\phi \rightarrow \psi)) = 1$, that for every object $u$ s.t. $g[\alpha \dashrightarrow u]$ by $\mathscr{I}$, the statement $\phi \rightarrow \psi$ is true.
+        \item Assume now that $V_{\mathscr{M}, g}(\phi \rightarrow \forall \alpha \psi) = 0$ for reductio.
+        \item From (2), it must be that $V_{\mathscr{M}, g}(\phi) = 1$ while $V_{\mathscr{M}, g}(\forall \alpha \psi) = 0$. 
+        \item From (3), given that $V_{\mathscr{M}, g}(\phi) = 1$, the consequent in (1) cannot be false.
+        \item More specifically, $\alpha$ does not occur in $\phi$. Thus the truth value of $\phi$ is independent of $\alpha$, and we have (semantically) $V_{\mathscr{M}, g}(\forall \alpha((1)\rightarrow \psi)) = 1$.
+        \item $\psi$ in (1, 5) is still dependent on $\alpha$. For the relation in (1, 5) to hold, $V_{\mathscr{M}, g}(\forall\alpha(\psi)) \neq 0$.
+        \item $\bot (3, 6)$.
+        \item $\therefore \; V_{\mathscr{M}, g}(\phi \rightarrow \forall \alpha \psi) = 1$.
+    \end{enumerate}
+
+    We discharge the entire proof with: 
+
+    $$\vDash_{PC} \forall \alpha (\phi \rightarrow \psi) \rightarrow (\phi \rightarrow \forall\alpha \psi)$$
+
+    \subsection{}
+
+    Lastly, that if $\vDash_{PC} \phi$, then $\vDash_{PC} \forall \alpha \phi$.
+
+    \begin{enumerate}
+        \item Assume that in $\mathscr{M} \left\langle \mathscr{D}, \mathscr{I} \right\rangle$ with a variable assignment function $g$, $V(\phi) = 1$.
+        \item This entails that $V_{\mathscr{M}, g}(\phi) = 1$.
+        \item $\phi$ is independent of any term.
+        \item Thus, $\forall \alpha$ s.t. $g[\alpha \dashrightarrow u]$ where $u \in \mathscr{D}$, $V_{\mathscr{M}, g}(\phi) = 1$.
+        \item $\therefore \; V_{\mathscr{M}, g}(\forall \alpha \phi) = 1$ (Since $\mathscr{I}$ and $g$ will not map to any object where that makes $\phi$ false, given the independence of $\phi$).
+    \end{enumerate}
+
+    We discharge with $\vDash_{PC} \phi \rightarrow \forall \alpha \phi$.
+    
+    \section{}
+    We are given $\mathscr{L}_=$, $\mathscr{L}_\iota$, and $\mathscr{L}_{\iota, \lambda}$.
+    We want to symbolize with the dictionary: \newline
+        
+    (*) The King of France is not bald. 
+    
+    K : ... is king of France. 
+
+    F : ... is bald.
+
+    \subsection{}
+    Firstly, we endeavor to obtain two semantically non-equivalent symbolizations of (*) in $\mathscr{L}_=$.
+    
+    $$\exists x ((Kx \wedge \lnot Fx) \wedge \forall y(Ky \rightarrow y = x))$$
+    $$\lnot \exists x ((Kx \wedge Fx) \wedge \forall y(Ky \rightarrow y = x))$$
+
+    \subsection{}
+    We now symbolize (*) using $\iota$.
+
+    $$\lnot F(\iota x Kx)$$
+    
+    Parentheses are added for clarity. This articulation is equivalent to the first statement in the above section.
+    This is because it asserts the existence of a king of France. For the second statement using the negated existential qualifier, we say there exists no king of France that is bald.
+    This statement is satisfied \textit{even if} there exists no king of France at all.
+
+    Therefore, this is equivalent to the more-assertive first statement where we say that \textit{there exists} a king of France--exactly one--who is not bald.
+
+    \subsection{}
+    Using $\mathscr{L}_{\iota , \lambda}$, we can acquire:
+
+    $$ \lnot \iota y(\lambda x (Kx \wedge Fx) (y))$$
+
+    To show equivalence, we would need identical truth conditions. In the $\mathscr{L}_{\iota, \lambda}$ statement, we have a $\lambda$ statement that obtains when the $x$ is the king of France and bald.
+    But the $\iota$ operator asserts that there is no such $y \in \mathscr{D}$ that satisfies that statement. 
+    The statement would be true if there were no king of France, if there were no object $u \in \mathscr{D}$ that satisfied the left conjuct of $\lambda x(Kx \wedge Fx)$, it would never obtain.
+    And thus the $\iota$ operator would also obtain, given that no $y$ exists to satisfy the $\lambda$ statement.
+    Therefore this is logically equivalent to $\lnot \exists x ((Kx \wedge Fx) \wedge \forall y(Ky \rightarrow y = x))$, since each permits the non-existence of a king, 
+    while asserting that if there is some $u$ s.t. $Ku$ obtains, it will obtain $Fu$ simultaneously. The key is that for both of these statements, we say ``there does not exist''.
+
+    \subsection{}
+    We now compare and contrast the statements using existential quantifiers and $\mathscr{L}_{\iota, \lambda}$.
+    It is obvious that we employ different notation and operators in each case. Besides this, the most glaring difference is that there is some nuance where the symbolizations produce different results.
+    The two symbolizations both produce the desired truth values for the case where a king does exist in the domain. That is at least satisfactory.
+    But in terms of stronger logical implication, it seems more desirable to assert a king exists.
+    In these senses, the identity operator is redundant if we are employing the $\iota$ and even $\lambda$ operators.
+
+    \section{}
+    Binary generalized quantifiers.
+
+    \subsection{}
+
+    Firstly, $V_{\mathscr{M}, g}((\text{No } \alpha : \phi)\psi) = 1$ iff $|\phi^{\mathscr{M}, g} \cap \psi^{\mathscr{M}, g, \alpha}| = 0$.
+    This sentence can be symbolized using (=).
+    $$\forall x (\phi(x) \rightarrow \lnot \psi(x))$$
+
+    Next, $V_{\mathscr{M}, g}((\text{At least two } \alpha : \phi)\psi) = 1$ iff $|\phi^{\mathscr{M}, g} \cap \psi^{\mathscr{M}, g, \alpha}| \geq 2$.
+    This sentence can also be symbolized using $\mathscr{L}_=$.
+    $$\exists x \exists y ((\phi(x) \wedge \phi(y) \wedge (\psi(x) \wedge \psi(y))) \wedge \lnot(x = y))$$
+
+    For $V_{\mathscr{M}, g}((\text{Finitely many } \alpha : \phi)\psi) = 1$ iff $|\phi^{\mathscr{M}, g} \cap \psi^{\mathscr{M}, g, \alpha}|$ is finte.
+    We would have no way of expressing this sentence in $\mathscr{L}_=$. This is because there is no way to describe infinity using $\mathscr{L}_=$.
+    If we can't say infinite, then we unable to say not infinite using $\mathscr{L}_=$. By extension, we don't have way to say finite. 
+    See LfP 120 - 121.
+
+    For $V_{\mathscr{M}, g}((\text{Most } \alpha : \phi)\psi) = 1$ iff $|\phi^{\mathscr{M}, g} \cap \psi^{\mathscr{M}, g, \alpha}| > |\phi^{\mathscr{M}, g, \alpha} - \psi^{\mathscr{M}, g, \alpha}$. 
+    This would be inexpressible using $\mathscr{L}_=$. This is because we have no way of comparing set \textit{sizes} with the notation. See LfP 120 - 122. Even if you tried to say something like: ``There are at least $x$ number of things,'' you could not say that they are \textit{more than} the number of other things.
+
+    \subsection{}
+    While Sider introduces $\exists_\infty$ for monadic expressions, second order logic quantifies over predicates.
+    This means that we can express a finite number and also an amount (so we can also say `finitely many' and `most'), as well as `no' and `at least'.
+    
+    We would do this by quantifying over sets. If there were some second order variable $X$ that accrued only ceratain $x$ that satisfied a sentence.
+    I found on a \href{https://math.stackexchange.com/questions/4163112/expressing-finitely-many-infinitely-many-most-and-more-in-second-order}{guide} that a standard expression of finiteness  is available via $f: A\rightarrow A$.
+    In this definition of finiteness, every injective is surjective (learned about this online).
+    
+    In SOL, size comparisons are available to use due to the same new technicalities we are afforded. Again, we can quantify over functions.
+    A function that we quantify over in SOL is an injection if different inputs always yield different outputs.
+    So if you inject the results from one function $A$ into another, this means that $A$ will be less than the second function! 
+    Bijection (where every element in a set is obtained by some element in another set), then you can compare sizes-- if there is a bijection between them, they are the same size.
+\end{document}
